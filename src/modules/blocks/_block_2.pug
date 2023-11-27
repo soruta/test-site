@@ -1,0 +1,13 @@
+.block.white
+    .block_features
+        .container.flex_centered
+            .block_features_list
+                h1(class="wow bounceInDown" data-wow-duration="1s") Some Amazing Features
+                .block_features_list_items
+                    - value = 0;
+                    each feature in features
+                        .block_features_list_item(class="wow bounceInUp" data-wow-duration="1s" data-wow-delay=`${value+=.2}s`)
+                            i.icon(class=feature.ico)
+                            p !{feature.title}
+            .block_features_img(class="wow bounceInUp" data-wow-duration="1s")
+                img(src="/src/images/phone_set.png", alt="phone_set")

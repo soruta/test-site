@@ -1,0 +1,11 @@
+footer 
+    .footer
+        .footer_logo(class="wow bounceInDown" data-wow-duration="1s")
+            +image('logo_footer.png', 'logo_blue', url)
+        .footer_links
+            - value = 0;
+            each link in footer_links
+                a(href=link.url, class="wow bounceInDown" data-wow-duration="1s" data-wow-delay=`${value+=.2}s`)
+                    i.icon(class=link.ico)
+        .footer_copy(class="wow bounceInDown" data-wow-duration="1s")
+            p Copyrights © | All rights reserved.

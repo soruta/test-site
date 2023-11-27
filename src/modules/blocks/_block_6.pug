@@ -1,0 +1,17 @@
+.block.white
+    .block_updates
+        .container
+            h1 Download & Updates
+            .block_updates_content
+                .block_updates_downloads
+                    - value = 0;
+                    each download in downloads
+                        a(href="#", class="wow bounceInLeft", data-wow-duration="1s", data-wow-delay=`${value+=.2}s`)
+                            +download(download.type, download.quantity)(class=download.color)
+                .block_updates_subscribe
+                    i(class="wow bounceInLeft" data-wow-duration="1s") We promise, your mail never will be spam.
+                    .block_updates_subscribe_input
+                        input(placeholder='Enter Email Address', class="wow bounceInLeft", data-wow-duration="1s", data-wow-delay=".2s")
+                        button(type='submit', class='btn', class="wow bounceInLeft", data-wow-duration="1s", data-wow-delay=".4s") Submit
+            .block_updates_down(class="wow bounceInUp", data-wow-duration="1s")
+                img(src="/src/images/phone_horisontal.png", class='block_updates_down_image' alt="phone_horisontal")

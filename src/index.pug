@@ -1,0 +1,71 @@
+include modules/_vars
+include modules/_mixin
+
+doctype html
+html(lang="en")
+  head
+    title= pageTitle
+    link(href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet")
+    meta(name='viewport' content='width=device-width')
+    style 
+      include styles/normalize.css
+      include styles/style.css
+      include styles/icons.css
+      include styles/icons-codes.css
+      include styles/icons-embedded.css
+      include styles/animate.min.css
+  body.scroll
+    .top
+      include modules/_header
+      .content
+        .top_text
+          h1(class="wow bounceInUp" data-wow-duration="1s") Showcase your App with #[strong APPBIES]
+          p(class="wow bounceInUp" data-wow-duration="1s" data-wow-delay=".2s") Proin scelerisque fringilla magna bibendum dui tempor velnteger accumsan fermentum leousce viverraelnteger.
+          button.btn(class="wow bounceInUp" data-wow-duration="1s" data-wow-delay=".4s") Download
+        .top_img
+          img(src="/src/images/phone_top.png", class="wow bounceInUp", data-wow-duration="2s", alt="phone_top")
+    include modules/blocks/_block_1
+    include modules/blocks/_block_2
+    include modules/blocks/_block_3
+    include modules/blocks/_block_4
+    include modules/blocks/_block_5
+    include modules/blocks/_block_6
+    include modules/blocks/_block_7
+    include modules/_footer
+
+  script
+    include js/jquery-3.7.1.min.js
+  script
+    include js/slick.min.js
+  script
+    include js/wow.min.js
+  script.
+    new WOW().init();
+  script.
+    document.querySelector('.burger').addEventListener('click', function() {
+        this.classList.toggle('active');
+        document.querySelector('.nav').classList.toggle('open');
+    });
+  script.
+    const burgerMenu = document.querySelector(".burger");
+    const body = document.querySelector("body");
+    burgerMenu.addEventListener("click", () => {
+      body.classList.toggle("scroll");
+      body.classList.toggle("unscroll");
+    });
+  script.
+    $(".multiple-items").slick({
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+    });

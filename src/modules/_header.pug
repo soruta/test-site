@@ -1,0 +1,13 @@
+header
+    .header
+        span(class="wow bounceInLeft" data-wow-duration="1s")
+            +image('logo.png', 'logo', url)
+        nav.nav
+            ul
+                - value = 0;
+                each link in nav_links
+                    li.nav_item(class="wow bounceInLeft" data-wow-duration="1s" data-wow-delay=`${value+=.1}s`)
+                        a(href=link.url).nav_link= link.name
+        .burger
+            span
+        

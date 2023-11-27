@@ -1,0 +1,18 @@
+mixin image(img, text, url)
+    a(href=url)
+        img(src="/src/images/"+img, alt=text)
+
+mixin btn(text, animate)
+    .block_download_content_button.wow(class=animate data-wow-duration="1s")
+        a(href="#").btn #[i.icon&attributes(attributes)] !{text}
+
+mixin text(title, text, animate, delay)
+    .block_advantages_text(class=`wow ${animate}` data-wow-duration="1s" data-wow-delay=delay)
+        h2 !{title}
+        p !{text}
+
+mixin download(type, quantity)
+    .block_updates_downloads_circle&attributes(attributes)
+        i.icon(class=type)
+        p #{quantity}
+        p Downloads

@@ -1,0 +1,7 @@
+.block.white 
+    .block_screenshots
+        .container 
+            h1(class="wow bounceInDown" data-wow-duration="1s") App Screenshots
+            .slider.multiple-items(class="wow bounceInUp" data-wow-duration="1s" data-wow-delay=".2s")
+                each slide in slides
+                    img(src="/src/images/"+slide+".png", alt=slide)

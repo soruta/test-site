@@ -1,0 +1,105 @@
+@import "./colors";
+
+.header {
+    width: 100%;
+    max-width: 120rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 1.5rem;
+    margin: 0 auto;
+    img {
+        max-width: 11.5rem;
+    }
+    .nav {
+        width: 100%;
+        display: flex;
+        list-style: none;
+        padding-left: 0;
+        &.open{
+            display: flex !important;
+        }
+        ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+        }
+        &_item {
+            margin: 0 1.5rem;
+        }
+        &_link {
+            color: $white;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all .2s ease;
+            &:hover {
+                color: $gray-light;
+            }
+        }
+    }
+    .burger {
+        display: none;
+        position: relative;
+        z-index: 50;
+        align-items: center;
+        justify-content: flex-end;
+        width: 3rem;
+        height: 1.8rem;
+        span {
+            height: .2rem;
+            width: 80%;
+            transform: scale(1);
+            background-color: $burger-color;
+        }
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            height: .2rem;
+            width: 100%;
+            background-color: $burger-color;
+            transition: all 0.3s ease 0s;
+        }
+        &::before { top: 0 }
+        &::after { bottom: 0 }
+        &.active {
+            span { transform: scale(0) }
+            &::before {
+                top: 50%;
+                transform: rotate(-45deg) translate(0, -50%);
+            }
+            &::after {
+                bottom: 50%;
+                transform: rotate(45deg) translate(0, 50%);
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+
+    .burger { display: flex !important }
+
+    .nav {
+        display: none !important;
+        flex-direction: column;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0; bottom: 0; left: 0; right: 0;
+        z-index: 50;
+        overflow-y: auto;
+        padding: 5rem 4rem;
+        background-color: black;
+        animation: burgerAnimation 0.4s;
+        ul {
+            flex-direction: column;
+            row-gap: 3rem;
+        }
+    }
+}
+
+@keyframes burgerAnimation {
+    from {opacity: 0}
+    to {opacity: 1}
+}
